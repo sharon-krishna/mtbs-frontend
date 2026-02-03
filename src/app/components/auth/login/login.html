@@ -1,0 +1,27 @@
+<h2>Login</h2>
+
+    <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
+  <label for="username">Email:</label>
+  <input type="text" id="email" formControlName="email" />
+  @if (signInForm.get('email')?.touched && signInForm.get('email')?.invalid) {
+    @if (signInForm.get('email')?.errors?.['required']) {
+      <small>Full Name is required.</small>
+    }
+    @if (signInForm.get('email')?.errors?.['minlength']) {
+      <small>Full Name must be at least 3 characters long.</small>
+    }
+  }
+
+  <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" />
+    @if (signInForm.get('password')?.touched && signInForm.get('password')?.invalid) {
+      @if (signInForm.get('password')?.errors?.['required']) {
+        <small>Password is required.</small>
+      }
+      @if (signInForm.get('password')?.errors?.['minlength']) {
+        <small>Password must be at least 6 characters long.</small>
+      }
+    }
+
+  <button type="submit" [disabled]="signInForm.invalid">Sign In</button>
+</form>

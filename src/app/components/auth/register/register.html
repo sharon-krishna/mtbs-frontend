@@ -1,0 +1,25 @@
+<form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+<label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email" />
+  @if (signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid) {
+    @if (signUpForm.get('email')?.errors?.['required']) {
+      <small>Email is required.</small>
+    }
+    @if (signUpForm.get('email')?.errors?.['email']) {
+      <small>Please enter a valid email address.</small>
+    }
+  }
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" formControlName="password" />
+  @if (signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid) {
+    @if (signUpForm.get('password')?.errors?.['required']) {
+      <small>Password is required.</small>
+    }
+    @if (signUpForm.get('password')?.errors?.['minlength']) {
+      <small>Password must be at least 6 characters long.</small>
+    }
+  }
+
+  <button type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+</form>
