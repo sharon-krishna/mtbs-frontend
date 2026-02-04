@@ -1,0 +1,14 @@
+<h3>Movies</h3>
+
+    <form [formGroup]="form" (ngSubmit)="create()">
+      <input placeholder="Title" formControlName="title" />
+      <input type="number" placeholder="Duration" formControlName="duration_minutes" />
+      <input placeholder="Language" formControlName="language" />
+      <button>Add Movie</button>
+    </form>
+
+    <ul>
+  @for (movie of movies(); track movie.id) {
+    <li>{{ movie.title }} ({{ movie.language }})</li>
+  }
+</ul>
