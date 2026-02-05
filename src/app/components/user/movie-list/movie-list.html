@@ -1,0 +1,10 @@
+<h2>Now Showing</h2>
+
+    <ul>
+    @for (movie of movies(); track movie.id) {
+    <li>
+    <b>{{ movie.title }}</b> ({{ movie.language }})
+    <button (click)="viewShows(movie.id)">View Shows</button>
+    </li>
+    }
+    </ul>

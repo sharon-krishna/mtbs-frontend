@@ -1,0 +1,11 @@
+<h3>Available Shows</h3>
+
+<ul>
+@for (show of shows(); track show.id) {
+  <li>
+    {{ show.start_time | date:'short' }} —
+    ₹{{ show.base_price }}
+    <button (click)="selectSeats(show.id)">Select Seats</button>
+  </li>
+}
+</ul>

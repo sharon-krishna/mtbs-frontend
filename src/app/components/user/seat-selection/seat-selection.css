@@ -1,0 +1,21 @@
+button {
+  margin: 4px;
+  padding: 6px;
+}
+
+.available {
+  background: #e0ffe0;
+}
+
+.locked {
+  background: #ffd966;
+  cursor: not-allowed;
+}
+
+.booked {
+  background: #ff9999;
+  cursor: not-allowed;
+}
+.selected {
+  border: 2px solid black;
+}

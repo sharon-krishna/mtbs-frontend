@@ -1,0 +1,16 @@
+<h3>Select Seats</h3>
+@for (row of seatRows(); track row.row) {
+<div>
+<strong>{{ row.row }}</strong>
+@for (seat of row.seats; track seat.seat_id) {
+<button
+  [disabled]="seat.status !== 'AVAILABLE'"
+  [ngClass]="seat.status.toLowerCase()"
+  (click)="toggleSeat(seat.seat_id)"
+>
+  {{ seat.seat_number }}
+</button>
+}
+</div>
+}
+<p>Selected Seats: {{ selectedSeats().join(', ') }}</p>
