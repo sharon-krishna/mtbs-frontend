@@ -19,13 +19,13 @@ export const routes: Routes = [
     canActivate:[authGuard],
     loadComponent:() =>import('./components/user/user/user').then(m => m.User)
   },
-  
+
   {
     path: '',
     canActivate: [authGuard],
     loadComponent:() =>import('./components/user/movie-list/movie-list').then(m => m.MovieList)
   },
-  
+
   {
     path: 'movies/:id/shows',
     canActivate: [authGuard],
@@ -44,10 +44,22 @@ export const routes: Routes = [
       }
     ]
   },
-  
+
   {
   path: 'shows/:id/seats',
   canActivate: [authGuard],
   loadComponent:() =>import('./components/user/seat-selection/seat-selection').then(m => m.SeatSelection)
-}
+  },
+
+  {
+  path: 'payment/:id',
+  canActivate: [authGuard],
+  loadComponent:() =>import('./components/user/payment/payment').then(m => m.Payment)
+  },
+
+  {
+  path: 'confirmation',
+  canActivate: [authGuard],
+  loadComponent:() =>import('./components/user/booking-confirmation/booking-confirmation').then(m => m.BookingConfirmation)
+  }
 ];

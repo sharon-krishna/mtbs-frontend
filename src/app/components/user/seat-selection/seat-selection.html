@@ -13,4 +13,5 @@
 }
 </div>
 }
-<p>Selected Seats: {{ selectedSeats().join(', ') }}</p>
+<br>
+<button (click)="lockSeats()" [disabled]="!selectedSeats().length">Lock Seats</button>
